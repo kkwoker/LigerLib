@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Facades;
+namespace Liger\Facades;
 use Illuminate\Support\Facades\Facade;
 
 
