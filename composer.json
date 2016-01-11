@@ -12,7 +12,7 @@
         }
     ],
     "autoload": {
-        "prs-0": {
+        "psr-0": {
             "Liger": "src/"
         }
     }
