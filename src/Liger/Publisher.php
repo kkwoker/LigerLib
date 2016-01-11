@@ -5,14 +5,14 @@ use Redis;
 
 class Publisher{
 
-    public function publishProduct(String $prefix, String $key)
+    public function publishProduct($product)
     {
-        
+
     }
 
-    public function publishLegal($prefix, $key, $value)
+    public function publishLegal($legal)
     {
-        Redis::set($prefix.'.'.$key, $value);
+        //Redis::set($prefix.'.'.$key, $value);
     }
 
 
