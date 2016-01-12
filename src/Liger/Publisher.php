@@ -5,7 +5,6 @@ use Redis;
 use DB;
 class Publisher{
 
-    protected $productKey = 'PRODUCT';
 
     public function publishProduct($product)
     {
@@ -16,7 +15,7 @@ class Publisher{
                 foreach($product['attributesMapping'] as $key => $val){
                     if(isset($val[$lang->id][$region->id])){
                         $redisKeyArray = ['PRODUCT', $lang->short_name, $region->short_name, $product['key']];
-                        $redisKey = join(' ', $redisKeyArray);
+                        $redisKey = join('.', $redisKeyArray);
                         $values = Redis::command('hset', [$redisKey, $key, $val[$lang->id][$region->id]]);
                     }
                 }
@@ -37,7 +36,7 @@ class Publisher{
         foreach ($regions as $region) {
             foreach ($languages as $lang) {
                     $redisKeyArray = ['PRODUCT', $lang->short_name, $region->short_name, $product['key']];
-                    $redisKey = join(' ', $redisKeyArray);
+                    $redisKey = join('.', $redisKeyArray);
                     $values = Redis::command('del', [$redisKey]);
             }
         }
@@ -48,8 +47,5 @@ class Publisher{
 
     }
 
-    public function test(){
-        return 'test';
-    }
 
 }
