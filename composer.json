@@ -1,7 +1,6 @@
 {
     "name": "telus/liger",
     "description": "Liger package for admin api and public api",
-    "version": "1.0.0",
     "require:": {
         "predis/predis": "^1.0"
     },
